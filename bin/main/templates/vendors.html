@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vendors</title>
+</head>
+<body>
+    <h1>Vendors</h1>
+    <ul>
+        <!-- Iterate over the list of vendors and display each one -->
+        <li th:each="vendor : ${vendors}">
+            <span th:text="${vendor.name}">Vendor Name</span> -
+            <span th:text="${vendor.address}">Vendor Address</span>
+        </li>
+    </ul>
+
+    <h2>Add New Vendor</h2>
+
+</body>
+</html>

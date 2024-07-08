@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+</head>
+
+<body>
+	<h1>Orders</h1>
+	<a th:href="@{/home}">Home</a>
+	    <form id='filter' method="get" action="/orders">
+	        <label>All
+	            <input type="radio" name="status" value="" > 
+	        </label>
+	        <label>Open
+	            <input type="radio" name="status" value="OPEN" > 
+	        </label>
+	        <label> Closed
+	            <input type="radio" name="status" value="CLOSED" >
+	        </label>
+	        <label for="firstName">
+				 First Name <input type="text" name="firstName" />
+			</label>
+			 <label>
+				 Last Name <input type="text" name="lastName" />
+			</label>
+			 <label>
+				 Insurance <input type="text" id="insurance" name="insurance" />
+			</label>
+			<label>Date: <input type="text" name="date"/></label>
+			<button type="submit">Filter</button>
+    </form>
+
+    <table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Status</th>
+				
+				<th>First Name</th>
+				
+				<th>Last Name</th>
+				
+				<th>Insurance</th>
+				
+				<th>Date Opened</th>
+			</tr>
+		</thead>
+		<tbody>
+            <tr th:each="order : ${orders}">
+			    <td>
+			        <a th:href="@{/orders/{id}(id=${order.id})}" th:text="${order.id}"></a>
+			    </td>
+                <td th:text="${order.status}"></td>  
+                <td th:text="${order.firstName}"></td>  
+                <td th:text="${order.lastName}"></td>        
+                <td th:text="${order.insurance}"></td>              
+                <td th:text="${order.date}"></td>
+            </tr>
+		</tbody>
+	</table>
+</body>
+</html>
