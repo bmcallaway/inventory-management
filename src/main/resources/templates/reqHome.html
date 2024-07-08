@@ -1,0 +1,16 @@
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<title>Requisitions</title>
+</head>
+
+<body>
+	<h1>Requisitions</h1>
+        <li th:each="req : ${reqs}">
+	        <span th:text="${req.id}">Part Id</span>
+	        <span th:text="${req.vendor}">Description</span>
+	        <span th:text="${req.date">Date Entered</span>
+	        <span th:text="${req.status">Status</span>
+    	</li>
+    	
+</body>

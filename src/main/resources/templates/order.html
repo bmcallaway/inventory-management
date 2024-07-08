@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title th:text="${order.lastName} + ', ' + ${order.firstName}"></title>
+	</head>
+	<body>
+		<h1>Order Id: <span th:text="${order.id}"></span></h1>
+		<div>
+			<h2>First Name: <span th:text="${order.firstName}"></span></h2>
+			<h2>Last Name: <span th:text="${order.lastName}"></span></h2>
+			<h2>Insurance <span th:text="${order.insurance}"></span></h2>
+			<h2>Date: <span th:text="${order.date}"></span></h2>
+			
+			<a th:href="@{/orders}">Back</a>
+			
+		</div>
+		
+		<div>
+			<ul>
+				<li th:each="part : ${parts}">
+					<span th:text="${part.description}"></span>
+				</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>
